@@ -8,20 +8,25 @@ export default class Main extends React.Component {
   constructor() {
     super()
     this.state = {
-      officeQuote: {}
+      officeQuote: []
     }
     console.log('this is the empty state', this.state)
   }
 
   async componentDidMount () {
-    const {data} = await axios.get('https://officeapi.dev/api/quotes/random')
-    console.log('this is what is being fetched',data)
-    this.setState({officeQuote: data})
+    const data = await axios.get('/')
+    console.log('this is what was fetched',data)
+    let quote = this.state
+    // quote.push(data)
+    // console.log('this is the quote fetched in an array',quote)
+    // this.setState({officeQuote: data})
   }
 
   render(){
     return (
       <div id="main" className="header">
+        <h1> this is where office quotes would be...</h1>
+        <h2>IF THEY WORKED</h2>
       <h4>{this.state.officeQuote}</h4>
       </div>
     )
